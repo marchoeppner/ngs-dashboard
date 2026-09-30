@@ -1,0 +1,2 @@
+class JobScheduler < ApplicationRecord
+end

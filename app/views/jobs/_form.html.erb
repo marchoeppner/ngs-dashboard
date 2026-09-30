@@ -1,0 +1,52 @@
+<%= form_with(model: job) do |form| %>
+  <% if job.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+        <% job.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :job_id, style: "display: block" %>
+    <%= form.number_field :job_id %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :completed, style: "display: block" %>
+    <%= form.checkbox :completed %>
+  </div>
+
+  <div>
+    <%= form.label :attempts, style: "display: block" %>
+    <%= form.number_field :attempts %>
+  </div>
+
+  <div>
+    <%= form.label :completed_at, style: "display: block" %>
+    <%= form.date_field :completed_at %>
+  </div>
+
+  <div>
+    <%= form.label :run_path, style: "display: block" %>
+    <%= form.text_field :run_path %>
+  </div>
+
+  <div>
+    <%= form.label :log, style: "display: block" %>
+    <%= form.text_field :log %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

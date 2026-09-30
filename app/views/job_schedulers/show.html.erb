@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @job_scheduler %>
+
+<div>
+  <%= link_to "Edit this job scheduler", edit_job_scheduler_path(@job_scheduler) %> |
+  <%= link_to "Back to job schedulers", job_schedulers_path %>
+
+  <%= button_to "Destroy this job scheduler", @job_scheduler, method: :delete %>
+</div>

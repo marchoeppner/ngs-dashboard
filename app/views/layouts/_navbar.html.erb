@@ -1,0 +1,29 @@
+<header>
+
+    <div class="container">
+        <%= image_tag "lsh_logo.jpg", class: "lsh_logo" %>
+       
+        <nav>
+             
+            <ul>
+                <li><%= link_to "Home", dashboard_path %></li>
+                <li><%= link_to "Runs", runs_path %></li>
+                <li><%= link_to "Libraries", libraries_path %></li>
+                <li><%= link_to "Pipelines", pipelines_path %></li>
+                <li><%= link_to "Jobs", jobs_path %></li>
+         
+            </ul>
+            <div class="user-status">
+                <% if authenticated? %>
+                    <%#= Current.session %>
+                    <%= Current.user.email_address %>
+                    <%= button_to 'Sign out', session_path, method: :delete %>
+                <% else %>
+                    <%= link_to 'Sign in', new_session_path %>
+                    <%= link_to 'Sign up', sign_up_path %>
+                <% end %>
+            </div>
+        </nav>
+    </div>
+
+</header>

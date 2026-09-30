@@ -1,0 +1,27 @@
+<%= form_with(model: xref_job_library) do |form| %>
+  <% if xref_job_library.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(xref_job_library.errors.count, "error") %> prohibited this xref_job_library from being saved:</h2>
+
+      <ul>
+        <% xref_job_library.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :job_id, style: "display: block" %>
+    <%= form.text_field :job_id %>
+  </div>
+
+  <div>
+    <%= form.label :library_id, style: "display: block" %>
+    <%= form.text_field :library_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

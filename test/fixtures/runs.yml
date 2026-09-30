@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  platform: one
+  location: MyString
+  name: MyString
+  run_date: 2026-09-22
+  demuxed: false
+  comments: MyText
+
+two:
+  platform: two
+  location: MyString
+  name: MyString
+  run_date: 2026-09-22
+  demuxed: false
+  comments: MyText

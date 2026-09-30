@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+  h1 {
+   color: rgb(2, 2, 104) ;
+ }
+ .container { 
+   padding: 0px; 
+   margin: 0px; 
+   height: 110px; 
+   bottom: 0;
+   border-bottom: solid 5px rgb(197, 24, 111); 
+   display: flex;
+}
+
+ .sample-list td { border-bottom: solid 1px darkgoldenrod; padding: 5px; }
+ .sample-list td,th { padding: 5px;}
+ .sample-list th { background-color: lightgray; }
+
+ .sh_logo {
+   height: 100px;
+   float: left;
+   padding: 5px;
+ }
+ header {
+   padding-top: 15px;
+   padding-bottom: 15px;
+   margin: 0px;
+   height: 100%;
+   align-self: flex-end;
+}
+header a {
+   color: rgb(197, 24, 111);
+   text-decoration: none;
+}
+header a:hover {
+   text-decoration: underline;
+}
+
+nav {
+   align-self: flex-end;
+   padding-bottom: 5px;
+}
+nav ul {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+    
+}
+
+nav li {
+   display: inline-block;
+   margin-left: 70px;
+   padding-top: 35 px;
+   bottom: 0;
+}
+
+.user-status {
+   display: inline-block;
+   position: fixed;
+   top: 10px;
+   right: 10px;
+}
+
+.user-status a { color: grey; font-size: small; }
+
+.run-list td {
+   border-bottom: solid 1px rgb(9, 8, 66);
+   padding: 5px;
+}
+
+.run-list th {
+   text-align: left;
+   padding: 5px;
+}
+
+a {
+   color: rgb(134, 130, 130);
+   text-decoration: none;
+}
+a:hover {
+   color: rgb(173, 168, 168);
+   text-decoration: none;
+}
+
+.job-liste {
+  display: flex;          /* Aktiviert Flexbox (ordnet Kinder horizontal an) */
+  gap: 20px;              /* Moderner Abstand zwischen den Elementen */
+  list-style-type: none;  /* Entfernt die Aufzählungspunkte */
+  padding: 0;             /* Entfernt den Standard-Innenabstand */
+  margin: 0;              /* Entfernt den Standard-Außenabstand */
+}
+
+.dashboard {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.dashboard-tile {
+   background-color: rgb(221, 221, 221);
+   width: 300px;
+   height: 300px;
+
+}

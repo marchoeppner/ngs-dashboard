@@ -1,0 +1,60 @@
+<% @libraries = @run.libraries %>
+<% @pipelines = Pipeline.all.select {|p| !p.job_level && !p.run_level} %>
+
+<% if @libraries.length > 0 %>
+  <form action="/runs/<%= @run.id %>/create_bulk" method="post">
+
+  <table class="library-list">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Lane</th>
+      <th>R1</th>
+      <th>R2</th>
+    </tr>
+    <% @libraries.each do |lib| %>
+      <tr>
+        <td><input type="checkbox" name="libs[]" value=<%= lib.id %>></td>
+        <td><%= lib.name %></td>
+        <td><%= lib.lane %></td>
+        <td><%= lib.R1 %></td>
+        <td><%= lib.R2 %></td>
+      </tr>
+    <% end %>
+  </table>
+  <input type="button" class="my_form-check-button" onClick="checkAll(true);" value="Check All" />
+  <input type="button" class="my_form-check-button" onClick="checkAll(false);" value="Clear All" />
+  <p>
+  <label for="pipeline">Choose a pipeline</label>
+  <select id="pipeline" name="pipeline">
+    <% @pipelines.each do |pipe| %>
+      <option value=<%= pipe.id %>><%= pipe.name %></option>
+    <% end %>
+  </select>
+  <p>
+  <button type="submit" class="button-2">Submit</button>
+
+  </form>
+
+<% end %>
+
+  <div>
+    <%= link_to "Edit this run", edit_run_path(@run) %> |
+    <%= link_to "Back to runs", runs_path %>
+
+    <%= button_to "Destroy this run", @run, method: :delete %>
+  </div>
+
+<script>
+function checkAll(checkEm) {
+    var cbs = document.getElementsByTagName('input');
+
+    for (var i = 0; i < cbs.length; i++) {
+        if (cbs[i].type == 'checkbox') {
+            if (cbs[i].name == 'libs[]') {
+                cbs[i].checked = checkEm;
+            }
+        }
+    }
+}
+</script>

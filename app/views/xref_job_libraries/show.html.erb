@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @xref_job_library %>
+
+<div>
+  <%= link_to "Edit this xref job library", edit_xref_job_library_path(@xref_job_library) %> |
+  <%= link_to "Back to xref job libraries", xref_job_libraries_path %>
+
+  <%= button_to "Destroy this xref job library", @xref_job_library, method: :delete %>
+</div>

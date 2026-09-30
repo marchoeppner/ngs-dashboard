@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Runs" %>
+
+<h1>Sequenzierläufe</h1>
+
+<%= link_to "Neue Läufe suchen", register_runs_path %>
+
+<table class="run-list">
+  <tr>
+    <th>Plattform</th>
+    <th>Name</th>
+    <th>Speicherort</th>
+    <th>Datum</th>
+    <th>Demultiplexed</th>
+    <th>Libraries</th>
+    <th>Kommentare</th>
+    <th></th>
+  </tr>
+<div id="runs">
+  <% @runs.each do |run| %>
+    <tr>
+    <td><%= run.platform.name %></td>
+    <td><%= run.name %></td>
+    <td><%= run.location %></td>
+    <td><%= run.run_date %></td>
+    <td><%= run.demuxed %></td>
+    <td><%= run.count_unique_libraries %></td>
+    <td><%= run.comments %></td>
+    <td><%= link_to "Details", run %></td>
+    </tr>
+  <% end %>
+</div>
+</table>
+
+<%= link_to "New run", new_run_path %>

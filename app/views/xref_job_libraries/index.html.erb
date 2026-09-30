@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Xref job libraries" %>
+
+<h1>Xref job libraries</h1>
+
+<div id="xref_job_libraries">
+  <% @xref_job_libraries.each do |xref_job_library| %>
+    <%= render xref_job_library %>
+    <p>
+      <%= link_to "Show this xref job library", xref_job_library %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New xref job library", new_xref_job_library_path %>

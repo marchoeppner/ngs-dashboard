@@ -1,0 +1,11 @@
+<% content_for :title, "New run" %>
+
+<h1>New run</h1>
+
+<%= render "form", run: @run %>
+
+<br>
+
+<div>
+  <%= link_to "Back to runs", runs_path %>
+</div>

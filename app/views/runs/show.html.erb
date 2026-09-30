@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @run %>
+
+
+<% if @jobs.length > 0 %>
+
+  <h2>Jobs</h2>
+  <%= render @jobs %>
+<% end %>
+
+<h2>Libaries</h2>
+<%= render "libraries", run: @run %>
