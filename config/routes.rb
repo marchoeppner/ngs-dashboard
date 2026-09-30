@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "pages/dashboard"
   get "pages/settings"
   resources :xref_job_libraries
-  
+
   namespace :settings do
     resource :password, only: [ :show, :update ]
   end
@@ -32,13 +32,12 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   resource :sign_up
 
-  get 'dashboard', to: 'pages#dashboard'
-  get 'settings', to: 'pages#settings'
+  get "dashboard", to: "pages#dashboard"
+  get "settings", to: "pages#settings"
 
   namespace :api do
     namespace :v1 do
-      resources :jobs, only: [:index, :show, :update]
-      resources :pipelines, only: [:index, :show, :update]
+      resources :jobs, only: [ :index, :show, :update ]
     end
   end
 
