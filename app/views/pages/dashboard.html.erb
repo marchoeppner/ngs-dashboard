@@ -3,12 +3,18 @@
 <div class="dashboard">
 
     <div class="dashboard-tile">
-        Sequenzierläufe
+        <h2>Sequenzierläufe</h2>
+        <p>
+        <div>
+            <%= image_tag "sequencer_icon.png", class: "dashboard-icon" %><span style=""><%= @runs.length %> Läufe registriert</span>
+            <p>
+            <%= image_tag "analysis_icon.png", class: "dashboard-icon" %><span style=""><%= @jobs.length %> Jobs angelegt</span>
+        </div>
     </div>
 
 
     <div class="dashboard-tile">
-        Sequenzierer
+        <h2>Sequenzierer</h2>
     </div>
 
 </div>

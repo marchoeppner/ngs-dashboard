@@ -19,8 +19,12 @@
    bottom: 0;
    border-bottom: solid 5px rgb(197, 24, 111); 
    display: flex;
+   font-family: Arial, sans-serif;
 }
 
+.main {
+   font-family: Arial, sans-serif;
+}
  .sample-list td { border-bottom: solid 1px darkgoldenrod; padding: 5px; }
  .sample-list td,th { padding: 5px;}
  .sample-list th { background-color: lightgray; }
@@ -70,11 +74,22 @@ nav li {
    right: 10px;
 }
 
-.user-status a { color: grey; font-size: small; }
+.user-status a { color: rgb(181, 179, 179); font-size: small; }
 
+table {
+   border-collapse: collapse;
+}
 .run-list td {
-   border-bottom: solid 1px rgb(9, 8, 66);
-   padding: 5px;
+   border-bottom: solid 2px rgb(224, 224, 224);
+   padding: 25px;
+   border-collapse: collapse;
+}
+
+.run-list th {
+   color: rgb(145, 145, 145);
+   border-bottom: 10px solid rgb(168, 168, 168);
+   background-color: rgb(238, 238, 238);
+   text-align: center;
 }
 
 .run-list th {
@@ -101,13 +116,23 @@ a:hover {
 
 .dashboard {
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
 }
 .dashboard-tile {
    background-color: rgb(221, 221, 221);
-   width: 300px;
+   width: 400px;
    height: 300px;
 
+}
+.dashboard-icon {
+   vertical-align:middle;
+   padding-right: 10px;
+}
+.dashboard-tile h2 {
+   color: rgb(237, 235, 235);
+   border-top: 1px grey solid;
+   border-bottom: 1px grey solid;
+   background-color: rgb(172, 172, 172);
 }
 
 .library-selection {

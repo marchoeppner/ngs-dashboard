@@ -4,8 +4,10 @@
 
 <h1>Sequenzierläufe</h1>
 
-<%= link_to "Neue Läufe suchen", register_runs_path %>
+<%= link_to "Neue Läufe suchen", register_runs_path, class: "button-2"  %>
 
+
+<p>
 <table class="run-list">
   <tr>
     <th>Plattform</th>
@@ -24,7 +26,12 @@
     <td><%= run.name %></td>
     <td><%= run.location %></td>
     <td><%= run.run_date %></td>
-    <td><%= run.demuxed %></td>
+    <% if run.demuxed %>
+      <td bgcolor="lightgreen">
+    <% else %>
+      <td bgcolor="lightred">
+    <% end %>
+    <%= run.demuxed %></td>
     <td><%= run.count_unique_libraries %></td>
     <td><%= run.comments %></td>
     <td><%= link_to "Details", run %></td>
@@ -32,5 +39,5 @@
   <% end %>
 </div>
 </table>
+<p>
 
-<%= link_to "New run", new_run_path %>
