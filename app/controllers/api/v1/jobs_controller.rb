@@ -26,7 +26,7 @@ module Api
 
             # Strong Parameters: Erlaubt nur die explizit genannten Felder
             def job_params
-                params.require(:job).permit(:job_id, :status)
+                params.require(:job).permit(:id, :job_id, :attempts, :log, :status)
             end
         end
     end

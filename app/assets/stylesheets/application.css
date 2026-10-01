@@ -91,7 +91,7 @@ a:hover {
    text-decoration: none;
 }
 
-.job-liste {
+.job-list {
   display: flex;          /* Aktiviert Flexbox (ordnet Kinder horizontal an) */
   gap: 20px;              /* Moderner Abstand zwischen den Elementen */
   list-style-type: none;  /* Entfernt die Aufzählungspunkte */
@@ -108,4 +108,90 @@ a:hover {
    width: 300px;
    height: 300px;
 
+}
+
+.library-selection {
+   background-color: rgb(240, 240, 240);
+   border-top: 1px rgb(197, 24, 111) solid;
+   border-bottom: 1px rgb(197, 24, 111) solid;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+.library-selection h2 {
+   color: rgb(197, 24, 111);
+}
+
+table tr:hover {
+   background-color: #ddd;
+}
+
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 0 3px rgb(197, 24, 111);
+}
+.library-list td {
+  padding:5px
+}
+
+/* 
+buttons
+*/
+
+.button-2 {
+  background-color: rgb(197, 24, 111);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.button-2:hover {
+   background-color: rgb(91, 136, 89);
+   color: white;
+ }
+
+ .my_form-check-button:hover {
+   background-color: rgb(169, 169, 169);
+   color: white;
+ }
+.button-delete {
+   background-color: gray;
+   border: none;
+   color: white;
+   border-radius: 8px;
+   padding: 5px 5px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 12px;
+ }
+
+ .button-delete:hover {
+   background-color: rgb(180, 83, 83);
+   color: white;
+ }
+
+input[type=button], input[type=submit] {
+  background-color: lightgray;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+select {
+  border: 2px solid #dddddd;
+  background: #eeeeee;
+  padding: 5px;
+  transition: 0.4s;
+}
+
+select:hover,
+select:focus {
+  background: #dddddd;
 }

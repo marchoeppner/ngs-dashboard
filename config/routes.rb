@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   get "settings", to: "pages#settings"
 
+  # A Rest end point to be able to query and update jobs with
+  # an external script
   namespace :api do
     namespace :v1 do
       resources :jobs, only: [ :index, :show, :update ]

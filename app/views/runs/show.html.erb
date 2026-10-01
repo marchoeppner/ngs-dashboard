@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<h1>Sequenzierlauf</h1>
+
 <%= render @run %>
 
 
@@ -8,6 +10,17 @@
   <h2>Jobs</h2>
   <%= render @jobs %>
 <% end %>
+<p>
 
-<h2>Libaries</h2>
-<%= render "libraries", run: @run %>
+<div class="library-selection">
+  <h2>Libraries</h2>
+  Wählen Sie eine oder mehrere Libraries aus, bestimmen Sie die einzusetzende Pipeline (auf Version achten!) und erstellen Sie einen neuen Analyse-Auftrag ("job").
+  <%= render "libraries", run: @run %>
+</div>
+<p>
+<div>
+  <%= link_to "Lauf bearbeiten", edit_run_path(@run) %> |
+  <%= link_to "Übersicht", runs_path %>
+
+  <%= button_to "Lauf löschen", @run, method: :delete, form: { data: { turbo_confirm: 'Wirklich löschen?' } }%>
+</div>

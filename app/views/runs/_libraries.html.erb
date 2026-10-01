@@ -22,8 +22,8 @@
       </tr>
     <% end %>
   </table>
-  <input type="button" class="my_form-check-button" onClick="checkAll(true);" value="Check All" />
-  <input type="button" class="my_form-check-button" onClick="checkAll(false);" value="Clear All" />
+  <input type="button" class="my_form-check-button" onClick="checkAll(true);" value="Alles auswählen" />
+  <input type="button" class="my_form-check-button" onClick="checkAll(false);" value="Nichts auswählen" />
   <p>
   <label for="pipeline">Choose a pipeline</label>
   <select id="pipeline" name="pipeline">
@@ -32,19 +32,13 @@
     <% end %>
   </select>
   <p>
-  <button type="submit" class="button-2">Submit</button>
+  <button type="submit" class="button-2">Job erstellen</button>
 
   </form>
 
 <% end %>
 
-  <div>
-    <%= link_to "Edit this run", edit_run_path(@run) %> |
-    <%= link_to "Back to runs", runs_path %>
-
-    <%= button_to "Destroy this run", @run, method: :delete %>
-  </div>
-
+  
 <script>
 function checkAll(checkEm) {
     var cbs = document.getElementsByTagName('input');
