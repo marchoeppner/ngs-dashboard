@@ -1,7 +1,7 @@
 class RunsController < ApplicationController
   # GET /runs or /runs.json
   def index
-    @runs = Run.all
+    @runs = Run.order(created_at: :desc).page params[:page]
   end
 
   # GET /runs/1 or /runs/1.json
@@ -23,6 +23,7 @@ class RunsController < ApplicationController
   def create_bulk
     @run = Run.find(params[:id])
     @work_dir = Rails.configuration.local_resources["work_dir"]
+    @pipeline_profile = Rails.configuration.local_resources["pipeline_profile"]
 
     user = Current.user
 
@@ -36,7 +37,7 @@ class RunsController < ApplicationController
 
       libraries = params["libs"].map { |lid| Library.find(lid) }
 
-      command = "#{pipeline['template']} -profile lsh -r #{pipeline.version} --run_name #{@run.name} -resume"
+      command = "#{pipeline['template']} -profile #{@pipeline_profile} -r #{pipeline.version} --run_name #{@run.name} -resume"
 
       this_date = Time.now.strftime("%d-%m-%Y")
 
@@ -82,7 +83,8 @@ class RunsController < ApplicationController
 
   # POST /runs/register
   def register
-    illumina_dirs = [ "/work_syn/ngs/runs" ] # Rails.configuration.x.illumina_dirs
+    illumina_dirs = Rails.configuration.local_resources["illumina_dirs"]
+    puts illumina_dirs.inspect
     counter = 0
     platform = Platform.first
     illumina_dirs.each do |dir|
@@ -119,6 +121,7 @@ class RunsController < ApplicationController
 
   # PATCH/PUT /runs/1 or /runs/1.json
   def update
+    @run = Run.find(params["id"])
     respond_to do |format|
       if @run.update(run_params)
         format.html { redirect_to @run, notice: "Run was successfully updated.", status: :see_other }

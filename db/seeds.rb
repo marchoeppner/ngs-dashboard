@@ -8,22 +8,31 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create({"first_name" => "Marc", "last_name" => "Hoeppner", "email_address" => "marc.hoeppner@lsh.landsh.de", "password_digest" => "$2b$05$WyEpT28Ib84kmlZLc8AvUuHvjNZHwxHBCsUJRxDm8YBuNf0vcgYoy"})
+User.create({ "first_name" => "Marc", "last_name" => "Hoeppner", "email_address" => "marc.hoeppner@lsh.landsh.de", "password_digest" => "$2b$05$WyEpT28Ib84kmlZLc8AvUuHvjNZHwxHBCsUJRxDm8YBuNf0vcgYoy" })
 # Test123
 
-Platform.create({"name" => "Illumina"})
+Platform.create({ "name" => "Illumina" })
 
 Pipeline.create(
-    {"name" => "FooDMe2 1.5. Meat", 
-    "description" => "FooDMe2 Pipeline für Fleischprodukte", 
-    "version" => "1.5", 
+    { "name" => "FooDMe2 1.5. Meat",
+    "description" => "FooDMe2 Pipeline für Fleischprodukte",
+    "version" => "1.5",
     "template" => "/work_syn/shared/software/nextflow/nextflow run bio-raum/FooDMe2 --primer_set amniotes_dobrovolny --blast_min_consensus 0.6",
-    "samplesheet_format" => "sample\tfq1\tfq2" 
+    "samplesheet_format" => "sample\tfq1\tfq2"
     }
 )
 
 Pipeline.create(
-    {"name" => "ReadQC 1.3",
+    { "name" => "Gabi 1.5",
+    "description" => "Bakterielle WGS Analyse",
+    "version" => "1.5.0",
+    "template" => "/work_syn/shared/software/nextflow/nextflow run bio-raum/gabi",
+    "samplesheet_format" => "sample\tplatform\tfq1\tfq2"
+    }
+)
+
+Pipeline.create(
+    { "name" => "ReadQC 1.3",
     "description" => "Run QC",
     "version" => "1.3",
     "template" => "/work_syn/shared/software/nextflow/nextflow run marchoeppner/read-qc",
@@ -35,7 +44,7 @@ Pipeline.create(
 Pipeline.create(
     { "name" => "Backup v1",
     "description" => "Backup a run folder",
-    "version" => 1, 
+    "version" => 1,
     "run_level" => true,
     "job_level" => false,
     "template" => "/work_syn/shared/scripts/backup_run_folder"

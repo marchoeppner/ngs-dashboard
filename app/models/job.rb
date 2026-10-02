@@ -4,4 +4,6 @@ class Job < ApplicationRecord
     belongs_to :run
     belongs_to :pipeline
     belongs_to :user
+
+    paginates_per 50
 end

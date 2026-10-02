@@ -9,10 +9,50 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
-  h1 {
+ /*
+ Basic formatting
+ */
+
+h1 {
    color: rgb(2, 2, 104) ;
- }
- .container { 
+}
+
+a:hover {
+   color: rgb(173, 168, 168);
+   text-decoration: none;
+}
+
+a {
+   color: rgb(134, 130, 130);
+   text-decoration: none;
+}
+
+.section-with-logo {
+  display: flex;
+  align-items: center; /* Richtet Bild und Text perfekt mittig aus */
+  gap: 10px; 
+}
+
+.run-section {
+   padding-top: 5px;
+   padding-bottom: 5px;
+   border-top: 1px solid rgb(197, 24, 111);
+   border-bottom: 1px solid rgb(197, 24, 111);
+   background-color: rgb(247, 242, 203); 
+}
+.job-section {
+   border-top: 1px solid rgb(197, 24, 111);
+   border-bottom: 1px solid rgb(197, 24, 111);
+   background-color: rgb(203, 236, 247);
+}
+.info-text {
+   color: rgb(180, 178, 178);
+}
+ /* 
+ Structural elements
+ */
+
+.container { 
    padding: 0px; 
    margin: 0px; 
    height: 110px; 
@@ -25,93 +65,21 @@
 .main {
    font-family: Arial, sans-serif;
 }
- .sample-list td { border-bottom: solid 1px darkgoldenrod; padding: 5px; }
- .sample-list td,th { padding: 5px;}
- .sample-list th { background-color: lightgray; }
 
- .sh_logo {
-   height: 100px;
-   float: left;
-   padding: 5px;
- }
- header {
+header {
    padding-top: 15px;
    padding-bottom: 15px;
    margin: 0px;
    height: 100%;
    align-self: flex-end;
 }
+
 header a {
    color: rgb(197, 24, 111);
    text-decoration: none;
 }
 header a:hover {
    text-decoration: underline;
-}
-
-nav {
-   align-self: flex-end;
-   padding-bottom: 5px;
-}
-nav ul {
-   margin: 0;
-   padding: 0;
-   list-style: none;
-    
-}
-
-nav li {
-   display: inline-block;
-   margin-left: 70px;
-   padding-top: 35 px;
-   bottom: 0;
-}
-
-.user-status {
-   display: inline-block;
-   position: fixed;
-   top: 10px;
-   right: 10px;
-}
-
-.user-status a { color: rgb(181, 179, 179); font-size: small; }
-
-table {
-   border-collapse: collapse;
-}
-.run-list td {
-   border-bottom: solid 2px rgb(224, 224, 224);
-   padding: 25px;
-   border-collapse: collapse;
-}
-
-.run-list th {
-   color: rgb(145, 145, 145);
-   border-bottom: 10px solid rgb(168, 168, 168);
-   background-color: rgb(238, 238, 238);
-   text-align: center;
-}
-
-.run-list th {
-   text-align: left;
-   padding: 5px;
-}
-
-a {
-   color: rgb(134, 130, 130);
-   text-decoration: none;
-}
-a:hover {
-   color: rgb(173, 168, 168);
-   text-decoration: none;
-}
-
-.job-list {
-  display: flex;          /* Aktiviert Flexbox (ordnet Kinder horizontal an) */
-  gap: 20px;              /* Moderner Abstand zwischen den Elementen */
-  list-style-type: none;  /* Entfernt die Aufzählungspunkte */
-  padding: 0;             /* Entfernt den Standard-Innenabstand */
-  margin: 0;              /* Entfernt den Standard-Außenabstand */
 }
 
 .dashboard {
@@ -135,6 +103,117 @@ a:hover {
    background-color: rgb(172, 172, 172);
 }
 
+/*
+Navbar
+*/
+
+.sh_logo {
+   height: 100px;
+   float: left;
+   padding: 5px;
+}
+
+nav {
+   align-self: flex-end;
+   padding-bottom: 5px;
+}
+nav ul {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+nav li {
+   display: inline-block;
+   margin-left: 70px;
+   padding-top: 35 px;
+   bottom: 0;
+}
+
+.user-status {
+   display: inline-block;
+   position: fixed;
+   top: 10px;
+   right: 10px;
+}
+
+
+/* 
+Various tablular displays
+*/
+
+table {
+   border-collapse: collapse;
+}
+
+.run-list td {
+   border-bottom: solid 2px rgb(224, 224, 224);
+   padding: 25px;
+   border-collapse: collapse;
+}
+
+.run-list th {
+   color: rgb(145, 145, 145);
+   border-bottom: 10px solid rgb(168, 168, 168);
+   background-color: rgb(238, 238, 238);
+   text-align: center;
+}
+
+.run-list th {
+   text-align: left;
+   padding: 5px;
+}
+
+.job-list {
+  list-style-type: none; /* Entfernt die Aufzählungspunkte */
+  padding: 0px;
+  margin: 0; /* Entfernt den Standard-Außenabstand der Liste */
+  vertical-align: middle;
+  border-left: 10px solid grey;
+}
+
+.job-list ul {
+   display: flex;
+}
+
+.job-list ul:hover {
+   background-color: lightblue;
+}
+
+.job-list li {
+   padding: 10px;
+   display: block;
+}
+
+.pipeline-list th {
+   padding-bottom: 5px;
+   padding-top: 5px;
+   padding-left: 15px;
+   padding-right: 15px;
+   color: darkgray;
+   background-color: rgb(233, 233, 233);
+   border-bottom: 5px darkgrey solid;
+}
+
+.pipeline-list td {
+   padding: 15px;
+   border-bottom: solid 1px darkgrey;
+}
+
+.library-list td {
+   padding: 10px;
+}
+.library-list th {
+   color: darkgrey;
+   padding: 5px;
+   text-align: center;
+}
+/*
+Special elements
+*/
+
+.user-status a { color: rgb(181, 179, 179); font-size: small; }
+
 .library-selection {
    background-color: rgb(240, 240, 240);
    border-top: 1px rgb(197, 24, 111) solid;
@@ -153,8 +232,17 @@ table tr:hover {
 input[type="checkbox"]:checked {
   box-shadow: 0 0 0 3px rgb(197, 24, 111);
 }
-.library-list td {
-  padding:5px
+
+select {
+  border: 2px solid #dddddd;
+  background: #eeeeee;
+  padding: 5px;
+  transition: 0.4s;
+}
+
+select:hover,
+select:focus {
+  background: #dddddd;
 }
 
 /* 
@@ -209,14 +297,45 @@ input[type=button], input[type=submit] {
   cursor: pointer;
 }
 
-select {
-  border: 2px solid #dddddd;
-  background: #eeeeee;
-  padding: 5px;
-  transition: 0.4s;
-}
+/*
+Tabbed run list
+*/
+/* Tabs mit radio-Buttons */
 
-select:hover,
-select:focus {
-  background: #dddddd;
+.tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    >input[type="radio"] {
+        display: none;
+
+        &:checked+.tab-label {
+            background-color: rgb(197, 24, 111);
+        }
+    }
+
+    >input[type="radio"]:first-child+.tab-label {
+        border-radius: 50px 0 0 50px;
+    }
+
+    >input[type="radio"]:last-of-type+.tab-label {
+        border-radius: 0 50px 50px 0;
+    }
+
+    >input[type="radio"]:not(:checked)+.tab-label+.tab-content {
+        display: none;
+    }
+
+    .tab-label {
+        padding: 5px 15px;
+        color: white;
+        background-color: slategray;
+    }
+
+    .tab-content {
+        order: 99;
+        width: 100%;
+        margin-top: 15px;
+        display: block;
+    }
 }

@@ -3,6 +3,8 @@ class Run < ApplicationRecord
   has_many :libraries, dependent: :destroy
   has_many :jobs, dependent: :destroy
 
+  paginates_per 25
+
   def register_libraries
     platform = self.platform
 

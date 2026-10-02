@@ -22,10 +22,10 @@
       </tr>
     <% end %>
   </table>
+  <p>
   <input type="button" class="my_form-check-button" onClick="checkAll(true);" value="Alles auswählen" />
   <input type="button" class="my_form-check-button" onClick="checkAll(false);" value="Nichts auswählen" />
-  <p>
-  <label for="pipeline">Choose a pipeline</label>
+  <p>Pipeline auswählen</label>
   <select id="pipeline" name="pipeline">
     <% @pipelines.each do |pipe| %>
       <option value=<%= pipe.id %>><%= pipe.name %></option>

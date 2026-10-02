@@ -1,20 +1,28 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Sequenzierlauf</h1>
-
-<%= render @run %>
-
-
+<h1>Lauf <%=  @run.name %></h1>
+<p>
+  <div class="run-section">
+    <%= render "tabbed_view", run: @run %>
+  </div>
+<p>
 <% if @jobs.length > 0 %>
 
-  <h2>Jobs</h2>
+<div class="job-section">
+  <h2 class="section-with-logo"><%= image_tag "job_icon.png", class: "icon" %><span>Jobs</span></h2>
   <%= render @jobs %>
+  <p>
+</div>
 <% end %>
 <p>
 
 <div class="library-selection">
-  <h2>Libraries</h2>
-  Wählen Sie eine oder mehrere Libraries aus, bestimmen Sie die einzusetzende Pipeline (auf Version achten!) und erstellen Sie einen neuen Analyse-Auftrag ("job").
+  <h2 class="section-with-logo"><%= image_tag "library_icon.png", class: "icon" %><span>Libraries</span></h2>
+  <p>
+    <div class="info-text">
+  Wählen Sie eine oder mehrere Libraries aus, bestimmen Sie die einzusetzende Pipeline (auf Version achten!) und erstellen Sie einen neuen Analyse-Auftrag ("Job erstellen").
+    </div>
+  </p>
   <%= render "libraries", run: @run %>
 </div>
 <p>

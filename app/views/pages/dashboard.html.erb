@@ -9,6 +9,11 @@
             <%= image_tag "sequencer_icon.png", class: "dashboard-icon" %><span style=""><%= @runs.length %> Läufe registriert</span>
             <p>
             <%= image_tag "analysis_icon.png", class: "dashboard-icon" %><span style=""><%= @jobs.length %> Jobs angelegt</span>
+
+            <p>
+                <% if !@runs.empty? %>
+                    Aktueller Lauf: <%= link_to "Link", run_path(@runs.first) %>
+                <% end %>
         </div>
     </div>
 
