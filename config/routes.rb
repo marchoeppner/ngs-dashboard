@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
     member do
       post :create_bulk
+      post :create_job
     end
   end
   resources :platforms

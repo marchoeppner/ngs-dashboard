@@ -17,6 +17,9 @@
     <th>Demultiplexed</th>
     <th>Libraries</th>
     <th>Kommentare</th>
+    <% @pipelines.each do |pipe| %>
+      <th></th>
+    <% end %>
     <th></th>
   </tr>
 <div id="runs">
@@ -34,6 +37,14 @@
     <%= run.demuxed %></td>
     <td><%= run.count_unique_libraries %></td>
     <td><%= run.comments %></td>
+    <% @pipelines.each do |pipe| %>
+      <% job = run.jobs.find {|j| j.pipeline == pipe } %>
+      <% if job %>
+        <td bgcolor="<%= @color_by_status[job.status]%>"><%= link_to pipe.clean_name, run_path(run) %></td>
+      <% else %>
+        <td><%= link_to pipe.clean_name, create_job_run_path(run, pipeline_id: pipe.id), method: :post %></td>
+      <% end %>
+    <% end %>
     <td><%= link_to "Details", run %></td>
     </tr>
   <% end %>

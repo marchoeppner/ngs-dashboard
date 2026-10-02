@@ -2,6 +2,7 @@ class RunsController < ApplicationController
   # GET /runs or /runs.json
   def index
     @runs = Run.order(created_at: :desc).page params[:page]
+    @pipelines = Pipeline.where(run_level: true)
   end
 
   # GET /runs/1 or /runs/1.json
@@ -18,6 +19,58 @@ class RunsController < ApplicationController
   # GET /runs/1/edit
   def edit
     @run = Run.find(params[:id])
+  end
+
+  def create_job
+    @run = Run.find(params["id"])
+    @pipeline = Pipeline.find(params["pipeline_id"])
+    @work_dir = Rails.configuration.local_resources["work_dir"]
+    @pipeline_profile = Rails.configuration.local_resources["pipeline_profile"]
+    user = Current.user
+
+    job = Job.where(run_id: @run.id, pipeline_id: @pipeline.id).first
+
+    if job.nil?
+
+      command = "#{@pipeline['template']} -profile #{@pipeline_profile} -r #{@pipeline.version} --run_name #{@run.name}"
+      this_date = Time.now.strftime("%d-%m-%Y")
+
+      wpath = "#{@work_dir}/#{@run.clean_name}_#{@run.id}/#{@pipeline.clean_name}/#{this_date}"
+      FileUtils.mkdir_p(wpath)
+
+      if @pipeline.samplesheet_format
+        rows = [ @pipeline.samplesheet_format ]
+        @run.libraries.each do |lib|
+          if @pipeline.samplesheet_format.include?("platform")
+            rows << [ lib.name, @run.platform.upcase, lib.R1, lib.R2 ]
+          else
+            rows << [ lib.name, lib.R1, lib.R2 ]
+          end
+        end
+        ss_name = "#{wpath}/samples.tsv"
+        ss = File.new(ss_name, "w+")
+        rows.each { |r| ss.puts r }
+        ss.close
+        command = "#{command} --input samples.tsv"
+      else
+        command = "#{command} --input #{@run.location}"
+      end
+
+      puts command.inspect
+
+      job = Job.create({ run_id: @run.id, pipeline_id: @pipeline.id, command: command, status: "created", run_path: wpath, user_id: user.id })
+      puts job.inspect
+    end
+
+    respond_to do |format|
+      if job && job.save
+        format.html { redirect_to @run, notice: "Job #{job.id} successfully created." }
+        format.json { render :show, status: :created, location: @run }
+      else
+        format.html { redirect_to @run, notice: "Job could not be created - maybe it already exists?" }
+        format.json { render json. job.errors, status: :unprocessable_content }
+      end
+    end
   end
 
   def create_bulk
@@ -49,7 +102,7 @@ class RunsController < ApplicationController
       libraries.each do |lib|
         lib_name = lib.name.gsub(/_S[0-9]+$.*/, "")
         if pipeline.samplesheet_format.include?("platform")
-          rows << [ lib_name, @run.platform.upcase, lib.R1, lib.R2 ].join("\t")
+          rows << [ lib_name, @run.platform.name.upcase, lib.R1, lib.R2 ].join("\t")
         else
           rows << [ lib_name, lib.R1, lib.R2 ].join("\t")
         end
