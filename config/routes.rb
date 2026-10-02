@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
     member do
       post :create_bulk
-      post :create_job
+      get :create_job
     end
   end
   resources :platforms
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :jobs, only: [ :index, :show, :update ]
+      resources :runs, only: [ :index, :show, :update ]
     end
   end
 

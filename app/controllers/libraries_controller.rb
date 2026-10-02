@@ -3,7 +3,11 @@ class LibrariesController < ApplicationController
 
   # GET /libraries or /libraries.json
   def index
-    @libraries = Library.all
+    if params[:search]
+        @libraries = Library.where("name LIKE ?", params[:search]).page params[:page]
+    else
+        @libraries = Library.order(created_at: :desc).page params[:page]
+    end
   end
 
   # GET /libraries/1 or /libraries/1.json

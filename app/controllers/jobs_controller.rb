@@ -71,6 +71,6 @@ class JobsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def job_params
-      params.expect(job: [ :job_id, :status, :completed, :command, :attempts, :completed_at, :run_path, :log ])
+      params.expect(job: [ :job_id, :status, :completed, :command, :attempts, :completed_at, :run_path, :log, :report ])
     end
 end

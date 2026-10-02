@@ -1,10 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Lauf <%=  @run.name %></h1>
+<h1 class="section-with-logo"><%= image_tag "sequencer_icon.png", class: "icon" %><span>Lauf <%=  @run.name %></span></h1>
 <p>
-  <div class="run-section">
-    <%= render "tabbed_view", run: @run %>
-  </div>
+  <%= render "tabbed_view", run: @run %>
 <p>
 <% if @jobs.length > 0 %>
 
@@ -30,5 +28,5 @@
   <%= link_to "Lauf bearbeiten", edit_run_path(@run) %> |
   <%= link_to "Übersicht", runs_path %>
 
-  <%= button_to "Lauf löschen", @run, method: :delete, form: { data: { turbo_confirm: 'Wirklich löschen?' } }%>
+  <%= button_to "Lauf löschen", @run, method: :delete, class: "button-2" , data: { turbo_confirm: 'Wirklich löschen?' } %>
 </div>

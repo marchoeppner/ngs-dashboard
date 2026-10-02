@@ -5,6 +5,8 @@ class Run < ApplicationRecord
 
   paginates_per 25
 
+  store_accessor :qc_json, :q30, :phix_percent, :phix_error
+
   def register_libraries
     platform = self.platform
 

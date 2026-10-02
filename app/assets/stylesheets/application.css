@@ -185,6 +185,19 @@ table {
    display: block;
 }
 
+.joblist-table th {
+   padding: 15px;
+   background-color: rgb(229, 227, 227);
+   color: darkgray;
+   border-bottom: 5px darkgray solid;
+}
+
+.joblist-table td {
+
+   padding: 10px;
+
+
+}
 .pipeline-list th {
    padding-bottom: 5px;
    padding-top: 5px;
@@ -248,6 +261,18 @@ select:focus {
 /* 
 buttons
 */
+
+form.button_to .button-2 {
+   background-color: rgb(197, 24, 111);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
 
 .button-2 {
   background-color: rgb(197, 24, 111);
@@ -315,11 +340,11 @@ Tabbed run list
     }
 
     >input[type="radio"]:first-child+.tab-label {
-        border-radius: 50px 0 0 50px;
+        border-radius: 0px 0 0 0px;
     }
 
     >input[type="radio"]:last-of-type+.tab-label {
-        border-radius: 0 50px 50px 0;
+        border-radius: 0 50px 0px 0;
     }
 
     >input[type="radio"]:not(:checked)+.tab-label+.tab-content {
@@ -335,7 +360,8 @@ Tabbed run list
     .tab-content {
         order: 99;
         width: 100%;
-        margin-top: 15px;
+        padding-top: 15px;
         display: block;
+        border-top: 4px solid rgb(197, 24, 111);;
     }
 }

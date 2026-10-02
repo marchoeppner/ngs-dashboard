@@ -4,13 +4,31 @@
 
 <h1>Libraries</h1>
 
-<div id="libraries">
-  <% @libraries.each do |library| %>
-    <%= render library %>
-    <p>
-      <%= link_to "Show this library", library %>
-    </p>
-  <% end %>
-</div>
+<%= form_tag(libraries_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:name]) %>
+  <%= submit_tag ("Suche") %>
+<% end %>
 
-<%= link_to "New library", new_library_path %>
+<div id="libraries">
+
+  <table class="library-list">
+    <tr>
+      <th>Run</th>
+      <th>Name</th>
+      <th>Lane</th>
+      <th>R1</th>
+      <th>R2</th>
+    </tr>
+  <% @libraries.each do |library| %>
+    <tr data-controller="clickable-row" 
+          data-clickable-row-url-value="<%= library_path(library) %>" 
+          data-action="click->clickable-row#visit" %>
+      <td><%= link_to library.run.name, library.run %></td>
+      <td><%= library.name %></td>
+      <td><%= library.lane %></td>
+      <td><%= library.R1 %></td>
+      <td><%= library.R2 %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

@@ -4,7 +4,7 @@
 
 <h1>Jobs</h1>
 
-<table class="joblist">
+<table class="joblist-table">
   <tr>
     <th>ID</th>
     <th>Run</th>
@@ -15,16 +15,18 @@
     <th></th>
   </tr>
   <% @jobs.each do |job| %>
-    <tr>
+    <tr data-controller="clickable-row" 
+          data-clickable-row-url-value="<%= job_path(job) %>" 
+          data-action="click->clickable-row#visit" %>
       <td><%= job.id %></td>
       <td><%= job.run.name %></td>
       <td><%= job.pipeline.name %></td>
-      <td><%= job.created_at %></td>
-      <td><%= job.status %></td>
+      <td><%= job.created_at.strftime("%F") %></td>
+      <td bgcolor="<%= @color_by_status[job.status] %>"><%= job.status %></td>
       <td><%= job.user.full_name %></td>
-      <td><%= link_to "Show this job", job %></td>
+      <td><%= button_to "Löschen", job, method: :delete, class: "button-2", form_class: "button", form: { data: { turbo_confirm: 'Wirklich löschen?' } } %></td>
     </tr>
   <% end %>   
 </table>
 <p>
-<%= link_to "New job", new_job_path %>
+<%= paginate @jobs %>

@@ -12,7 +12,12 @@
         Metriken
     </label>
     <div class="tab-content">
-        METRIKEN HIER
+        <% if @run.qc_json %>
+        
+        <% else %>
+            Noch keine Metriken erfasst
+        <% end %>
+
     </div>
 
   </div>

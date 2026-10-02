@@ -5,5 +5,5 @@ class Job < ApplicationRecord
     belongs_to :pipeline
     belongs_to :user
 
-    paginates_per 50
+    paginates_per 25
 end

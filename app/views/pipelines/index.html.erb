@@ -11,15 +11,15 @@
       <th>Version</th>
       <th>Job Level</th>
       <th>Run Level</th>
-      <th></th>
     </tr>
   <% @pipelines.each do |pipeline| %>
-    <tr>
+    <tr data-controller="clickable-row" 
+          data-clickable-row-url-value="<%= pipeline_path(pipeline) %>" 
+          data-action="click->clickable-row#visit" %>
       <td><%= pipeline.name %></td>
       <td><%= pipeline.version %></td>
       <td><%= pipeline.job_level %></td>
       <td><%= pipeline.run_level %></td>
-      <td><%= link_to "Details", pipeline %>
     </tr>
   <% end %>
   </table>

@@ -6,9 +6,9 @@
         <h2>Sequenzierläufe</h2>
         <p>
         <div>
-            <%= image_tag "sequencer_icon.png", class: "dashboard-icon" %><span style=""><%= @runs.length %> Läufe registriert</span>
+            <%= image_tag "sequencer_icon.png", class: "dashboard-icon" %><span style=""><%= link_to @runs.length, runs_path %> Läufe registriert</span>
             <p>
-            <%= image_tag "analysis_icon.png", class: "dashboard-icon" %><span style=""><%= @jobs.length %> Jobs angelegt</span>
+            <%= image_tag "analysis_icon.png", class: "dashboard-icon" %><span style=""><%= link_to @jobs.length, jobs_path %> Jobs angelegt</span>
 
             <p>
                 <% if !@runs.empty? %>
