@@ -4,15 +4,6 @@
 <p>
   <%= render "tabbed_view", run: @run %>
 <p>
-<% if @jobs.length > 0 %>
-
-<div class="job-section">
-  <h2 class="section-with-logo"><%= image_tag "job_icon.png", class: "icon" %><span>Jobs</span></h2>
-  <%= render @jobs %>
-  <p>
-</div>
-<% end %>
-<p>
 
 <div class="library-selection">
   <h2 class="section-with-logo"><%= image_tag "library_icon.png", class: "icon" %><span>Libraries</span></h2>

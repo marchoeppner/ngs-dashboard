@@ -20,4 +20,20 @@
 
     </div>
 
+    <input type="radio" id="tab-3" name="my-tabs">
+    <label for="tab-3" class="tab-label">
+        Jobs (<%= @jobs.length %>)
+    </label>
+
+    <div class="tab-content">
+        <% if @jobs.length > 0 %>
+
+            <div class="job-section">
+                <h2 class="section-with-logo"><%= image_tag "job_icon.png", class: "icon" %><span>Jobs</span></h2>
+                <%= render @jobs %>
+                <p>
+            </div>
+        <% end %>
+    </div>
+
   </div>
