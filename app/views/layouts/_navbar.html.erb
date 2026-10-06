@@ -6,12 +6,12 @@
         <%= image_tag "lsh_logo.jpg", class: "lsh_logo" %>
         <nav>
              
-            <ul>
-                <li><%= link_to "Home", dashboard_path %></li>
-                <li><%= link_to "Runs", runs_path %></li>
-                <li><%= link_to "Libraries", libraries_path %></li>
-                <li><%= link_to "Pipelines", pipelines_path %></li>
-                <li><%= link_to "Jobs", jobs_path %></li>
+            <ul class="nav">
+                <li><%= link_to "Home", dashboard_path, class: "menu-link"  %></li>
+                <li><%= link_to "Läufe", runs_path, class: "menu-link" %></li>
+                <li><%= link_to "Libraries", libraries_path, class: "menu-link" %></li>
+                <li><%= link_to "Pipelines", pipelines_path, class: "menu-link" %></li>
+                <li><%= link_to "Jobs", jobs_path, class: "menu-link" %></li>
          
             </ul>
             <div class="user-status">
