@@ -1,6 +1,8 @@
 class LibrariesController < ApplicationController
   before_action :set_library, only: %i[ show edit update destroy ]
 
+  before_action :require_admin, only: [ :destroy ]
+
   # GET /libraries or /libraries.json
   def index
     if params[:search]

@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create({ "first_name" => "Marc", "last_name" => "Hoeppner", "email_address" => "marc.hoeppner@lsh.landsh.de", "password_digest" => "$2b$05$WyEpT28Ib84kmlZLc8AvUuHvjNZHwxHBCsUJRxDm8YBuNf0vcgYoy" })
+User.create({ "first_name" => "Marc", "last_name" => "Hoeppner", "admin" => true, "email_address" => "marc.hoeppner@lsh.landsh.de", "password_digest" => "$2b$05$WyEpT28Ib84kmlZLc8AvUuHvjNZHwxHBCsUJRxDm8YBuNf0vcgYoy" })
 # Test123
 
 Platform.create({ "name" => "Illumina" })

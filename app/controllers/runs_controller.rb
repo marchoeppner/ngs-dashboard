@@ -1,4 +1,8 @@
 class RunsController < ApplicationController
+  before_action :require_authentication
+
+  before_action :require_admin, only: [ :destroy ]
+
   # GET /runs or /runs.json
   def index
     @runs = Run.order(created_at: :desc).page params[:page]

@@ -155,6 +155,49 @@ Navbar
    right: 10px;
 }
 
+/*
+Login page
+*/
+
+.login h2 {
+   color: rgb(197, 24, 111);
+}
+.login {
+   margin-top: 100px;
+   background-color: rgb(228, 228, 228);
+   height: 200px;
+   border-top: solid 3px rgb(197, 24, 111);
+   padding-top: 100px;
+   padding-left: 100px;
+   padding-bottom: 100px;
+   border-bottom: solid 3px rgb(197, 24, 111);
+}
+
+.login-field {
+   width: 350px;
+   padding: 10px 15px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   transition: border-color 0.2s ease-in-out;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+  /* Replace #ffffff with your desired background color */
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  
+  /* Make sure the text color stays readable (e.g., dark gray) */
+  -webkit-text-fill-color: #333333 !important;
+}
 /* 
 Various tablular displays
 */

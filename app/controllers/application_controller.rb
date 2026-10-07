@@ -17,4 +17,19 @@ class ApplicationController < ActionController::Base
       "pending" => "LightSteelBlue"
     }
   end
+
+  # Macht die Methode auch in Views nutzbar (optional, siehe Schritt 3)
+  helper_method :current_user_admin?
+
+  def current_user_admin?
+    Current.user&.admin?
+  end
+
+  private
+
+  def require_admin
+    unless current_user_admin?
+      redirect_to root_path, alert: "Zugriff verweigert: Administrator-Rechte erforderlich."
+    end
+  end
 end

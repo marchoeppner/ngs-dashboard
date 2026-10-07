@@ -26,6 +26,9 @@
   <body>
     <%= render "layouts/navbar" %>
     <div class="main">
+      <% if alert %>
+        <div class="flash alert" style="color: red;"><%= alert %></div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

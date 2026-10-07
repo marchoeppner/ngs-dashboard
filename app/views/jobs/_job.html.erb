@@ -3,6 +3,9 @@
   <ul>
     <li><%= job.job_id %></li>
     <li><%= job.pipeline.name %></li>
+    <% if !@run %>
+      <li><%= job.command %></li>
+    <% end %>
     <li style="background-color:<%= @color_by_status[job.status] %>"><%= job.status %></li>
     <li><a href="file://<%= job.run_path %>" target="_blank">Ordner</a></li>
     <% if job.report %>

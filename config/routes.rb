@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     resource :password, only: [ :show, :update ]
   end
 
+  namespace :admin do
+    resource :dashboard, only: [ :show ]
+    # Add other administrative resources here (e.g., resources :users)
+  end
+
   resources :jobs do
     resources :libraries
     resources :users
