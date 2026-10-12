@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_07_112908) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_09_080523) do
   create_table "job_schedulers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "description"
@@ -28,6 +28,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_07_112908) do
     t.integer "depends_on"
     t.integer "job_id"
     t.string "log"
+    t.string "name"
     t.integer "pipeline_id", null: false
     t.text "report"
     t.integer "run_id", null: false
@@ -66,7 +67,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_07_112908) do
     t.text "samplesheet_format"
     t.string "template"
     t.datetime "updated_at", null: false
-    t.float "version"
+    t.text "version"
   end
 
   create_table "platforms", force: :cascade do |t|

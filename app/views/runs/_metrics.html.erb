@@ -1,0 +1,27 @@
+<table class="run-metrics">
+    <tr>
+        <td><b>Datenmenge</b></td>
+        <td><%= @run.yield %> GB</td>
+    </tr>
+    <tr>
+        <td><b>PhiX %</b></td>
+        <td><%= @run.phix_aligned %>%</td>
+    </tr>
+    <tr>
+        <td><b>PhiX Fehlerrate</b></td>
+        <td><%= @run.phix_error %></td>
+    </tr>
+    <tr>
+        <td><b>Read 1 Q30 (%)</b></td>
+        <td><%= @run.read_1_q30 %>%</td>
+    </tr>
+    <tr>
+        <td><b>Read 4 Q30 (%)</b></td>
+        <td><%= @run.read_4_q30 %>%</td>
+    </tr>
+    <tr>
+        <td><b>Total Q30 (%)</b></td>
+        <td><%= @run.total_q30 %>%</td>
+    </tr>
+</table>
+

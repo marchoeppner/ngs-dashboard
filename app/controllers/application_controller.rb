@@ -18,6 +18,14 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def set_thresholds 
+    @threshold_colors = {
+      "read_1_q30" => 85.0,
+      "read_4_q30" => 85.0,
+      "total_q30" => 85.0
+    }
+  end
+
   # Macht die Methode auch in Views nutzbar (optional, siehe Schritt 3)
   helper_method :current_user_admin?
 

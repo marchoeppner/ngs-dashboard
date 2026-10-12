@@ -281,6 +281,19 @@ table {
    padding: 5px;
    text-align: center;
 }
+
+.run-metrics th {
+   padding-bottom: 5px;
+   padding-top: 5px;
+   padding-left: 15px;
+   padding-right: 15px;
+   color: darkgray;
+   background-color: rgb(233, 233, 233);
+   border-bottom: 5px darkgrey solid;
+}
+.run-metrics td {
+   padding: 5px 50px 0px 5px;
+}
 /*
 Special elements
 */

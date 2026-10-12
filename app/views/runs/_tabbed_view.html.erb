@@ -13,7 +13,7 @@
     </label>
     <div class="tab-content">
         <% if @run.qc_json %>
-        
+            <%= render "metrics" %>
         <% else %>
             Noch keine Metriken erfasst
         <% end %>

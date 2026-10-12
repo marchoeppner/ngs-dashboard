@@ -60,10 +60,8 @@ class RunsController < ApplicationController
         command = "#{command} --input #{@run.location}"
       end
 
-      puts command.inspect
-
-      job = Job.create({ run_id: @run.id, pipeline_id: @pipeline.id, command: command, status: "created", run_path: wpath, user_id: user.id })
-      puts job.inspect
+      job_name = "#{@pipeline.name}_#{@run.id}"
+      job = Job.create({ run_id: @run.id, pipeline_id: @pipeline.id, command: command, status: "created", run_path: wpath, user_id: user.id, name: job_name })
     end
 
     respond_to do |format|
@@ -118,6 +116,7 @@ class RunsController < ApplicationController
 
       command = "#{command} --input samples.tsv"
 
+      job_name = "#{pipeline.name}_#{@run.id}"
       job = Job.create({ job_id: nil, run_path: wpath, user_id: user.id, run_id: @run.id, pipeline_id: pipeline.id, command: command, status: "created" })
 
       libraries.each do |lib|

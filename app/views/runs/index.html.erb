@@ -12,11 +12,10 @@
   <tr>
     <th>Plattform</th>
     <th>Name</th>
-    <th>Speicherort</th>
     <th>Datum</th>
-    <th>Demultiplexed</th>
+    <th>Datenmenge</th>
+    <th>Fehlerrate</th>
     <th>Libraries</th>
-    <th>Kommentare</th>
     <% @pipelines.each do |pipe| %>
       <th></th>
     <% end %>
@@ -27,16 +26,10 @@
     <tr>
     <td><%= run.platform.name %></td>
     <td><%= run.name %></td>
-    <td><%= run.location %></td>
     <td><%= run.run_date %></td>
-    <% if run.demuxed %>
-      <td bgcolor="lightgreen">
-    <% else %>
-      <td bgcolor="lightred">
-    <% end %>
-    <%= run.demuxed %></td>
+    <td><%= run.yield %></td>
+    <td><%= run.phix_error %></td>
     <td><%= run.count_unique_libraries %></td>
-    <td><%= run.comments %></td>
     <% @pipelines.each do |pipe| %>
       <% job = run.jobs.find {|j| j.pipeline == pipe } %>
       <% if job %>
