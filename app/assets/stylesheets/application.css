@@ -256,7 +256,18 @@ table {
 
    padding: 10px;
 
+}
 
+ul.lib {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+ul.lib li {
+   margin: 0 10px 0 0;
 }
 .pipeline-list th {
    padding-bottom: 5px;

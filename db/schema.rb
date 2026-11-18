@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_09_080523) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_18_111646) do
+  create_table "instruments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.string "nfs_path", null: false
+    t.string "nickname"
+    t.integer "platform", default: 0, null: false
+    t.integer "platform_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["platform_id"], name: "index_instruments_on_platform_id"
+  end
+
   create_table "job_schedulers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "description"
@@ -128,6 +139,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_09_080523) do
     t.index ["library_id"], name: "index_xref_job_libraries_on_library_id"
   end
 
+  add_foreign_key "instruments", "platforms"
   add_foreign_key "jobs", "pipelines"
   add_foreign_key "jobs", "runs"
   add_foreign_key "jobs", "users"

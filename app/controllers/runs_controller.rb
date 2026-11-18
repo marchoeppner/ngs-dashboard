@@ -139,7 +139,7 @@ class RunsController < ApplicationController
 
   # POST /runs/register
   def register
-    illumina_dirs = Rails.configuration.local_resources["illumina_dirs"]
+    illumina_dirs = Instrument.all.map { |i| i.nfs_path } # Rails.configuration.local_resources["illumina_dirs"]
     puts illumina_dirs.inspect
     counter = 0
     platform = Platform.first

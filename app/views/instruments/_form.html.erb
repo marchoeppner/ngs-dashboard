@@ -1,0 +1,42 @@
+<%= form_with(model: instrument) do |form| %>
+  <% if instrument.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(instrument.errors.count, "error") %> prohibited this instrument from being saved:</h2>
+
+      <ul>
+        <% instrument.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :nickname, style: "display: block" %>
+    <%= form.text_field :nickname %>
+  </div>
+
+  <div>
+    <%= form.label :nfs_path, style: "display: block" %>
+    <%= form.text_field :nfs_path %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :platform_id, "Instrumenten-Typ auswählen", style: "display: block" %>
+    <%= form.collection_select :platform_id, 
+        Platform.order(:name),
+        :id,
+        :name, 
+        { prompt: "Platform wählen..." }, 
+        { class: "form-control-class" } %>
+  </div>
+
+  <div style="margin-top: 1rem;">
+    <%= form.submit %>
+  </div>
+<% end %>
