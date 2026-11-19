@@ -140,7 +140,6 @@ class RunsController < ApplicationController
   # POST /runs/register
   def register
     illumina_dirs = Rails.configuration.local_resources["illumina_dirs"]
-    puts illumina_dirs.inspect
     counter = 0
     platform = Platform.first
     illumina_dirs.each do |dir|

@@ -11,12 +11,12 @@ class Run < ApplicationRecord
 
     fastqs = Dir["#{self.location}/**/*.fastq.gz"].group_by { |f| File.basename(f).split(/_L00[0-9]/).first }
 
+    libraries = []
     fastqs.each do |library, reads|
       acc = library
       name = library
 
       reads.group_by { |r| File.basename(r).slice(/L[0-9]*/) }.each do |b, reads|
-        puts reads.inspect
         lane = b.split("L00").last
         fwd = nil
         rev = nil
@@ -26,12 +26,13 @@ class Run < ApplicationRecord
           fwd = reads.first
         end
 
-          # if Library.where(R1: fwd, run_id: self.id, lane: lane).empty?
-          lib = Library.create({ "accession" => acc, "name" => name, "R1" => fwd, "R2" => rev, "run_id" => self.id, "lane" => lane, "platform_id" => platform.id })
-          lib.save
+        # if Library.where(R1: fwd, run_id: self.id, lane: lane).empty?
+        libraries << { "accession" => acc, "name" => name, "R1" => fwd, "R2" => rev, "run_id" => self.id, "lane" => lane, "platform_id" => platform.id }
         # end
       end
     end
+    # Create libraries in bulk for better performance
+    lib = Library.create(libraries)
   end
 
   def yield
