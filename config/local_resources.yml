@@ -1,9 +1,7 @@
 production:
-  work_dir: "/work_syn/ngs/analysis"
-  illumina_dirs: ["/work_syn/ngs/runs/test"]
+  work_dir: "/work_syn/ngs/analyses"
   pipeline_profile: "lsh"
 
 development:
-  work_dir: "/work_syn/ngs/analysis"
-  illumina_dirs: ["/work_syn/ngs/runs/test"]
+  work_dir: "/work_syn/ngs/analyses"
   pipeline_profile: "lsh"

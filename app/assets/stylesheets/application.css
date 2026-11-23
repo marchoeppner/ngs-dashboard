@@ -9,18 +9,9 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
- /*
- Basic formatting
- */
-
+/* Basic formatting */
 h1 {
-   color: rgb(2, 2, 104) ;
-}
-
-
-a:hover {
-   color: rgb(173, 168, 168);
-   text-decoration: none;
+   color: rgb(2, 2, 104);
 }
 
 a {
@@ -28,31 +19,12 @@ a {
    text-decoration: none;
 }
 
-.section-with-logo {
-  display: flex;
-  align-items: center; /* Richtet Bild und Text perfekt mittig aus */
-  gap: 10px; 
+a:hover {
+   color: rgb(173, 168, 168);
+   text-decoration: none;
 }
 
-.run-section {
-   padding-top: 5px;
-   padding-bottom: 5px;
-   border-top: 1px solid rgb(197, 24, 111);
-   border-bottom: 1px solid rgb(197, 24, 111);
-   background-color: rgb(247, 242, 203); 
-}
-.job-section {
-   border-top: 1px solid rgb(197, 24, 111);
-   border-bottom: 1px solid rgb(197, 24, 111);
-   background-color: rgb(203, 236, 247);
-}
-.info-text {
-   color: rgb(180, 178, 178);
-}
- /* 
- Structural elements
- */
-
+/* Structural elements */
 .container { 
    padding: 0px; 
    margin: 0px; 
@@ -79,24 +51,28 @@ header a {
    color: rgb(197, 24, 111);
    text-decoration: none;
 }
+
 header a:hover {
    text-decoration: underline;
 }
 
+/* Dashboard */
 .dashboard {
    display: grid;
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
 }
+
 .dashboard-tile {
    background-color: rgb(221, 221, 221);
    width: 400px;
    height: 300px;
-
 }
+
 .dashboard-icon {
    vertical-align:middle;
    padding-right: 10px;
 }
+
 .dashboard-tile h2 {
    color: rgb(237, 235, 235);
    border-top: 1px grey solid;
@@ -104,10 +80,7 @@ header a:hover {
    background-color: rgb(172, 172, 172);
 }
 
-/*
-Navbar
-*/
-
+/* Navbar */
 .sh_logo {
    height: 100px;
    float: left;
@@ -121,6 +94,7 @@ Navbar
    padding-bottom: 5px;
    margin-top: 70px;
 }
+
 .nav ul {
    margin: 0;
    padding: 0;
@@ -131,9 +105,8 @@ Navbar
    margin: 0 5px;
 }
 
-/* Zielgerichtet auf die vom Helper generierte Klasse */
 .menu-link {
-  display: block; /* Wichtig, damit das a-Element die Box voll ausfüllt */
+  display: block;
   padding: 10px 20px;
   color: #333;
   text-decoration: none;
@@ -155,13 +128,11 @@ Navbar
    right: 10px;
 }
 
-/*
-Login page
-*/
-
+/* Login page */
 .login h2 {
    color: rgb(197, 24, 111);
 }
+
 .login {
    margin-top: 100px;
    background-color: rgb(228, 228, 228);
@@ -183,6 +154,7 @@ Login page
    transition: border-color 0.2s ease-in-out;
 }
 
+/* Autofill fix */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -191,17 +163,12 @@ input:autofill,
 input:autofill:hover,
 input:autofill:focus,
 input:autofill:active {
-  /* Replace #ffffff with your desired background color */
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
   box-shadow: 0 0 0px 1000px #ffffff inset !important;
-  
-  /* Make sure the text color stays readable (e.g., dark gray) */
   -webkit-text-fill-color: #333333 !important;
 }
-/* 
-Various tablular displays
-*/
 
+/* Tabular displays */
 table {
    border-collapse: collapse;
 }
@@ -209,25 +176,12 @@ table {
 .run-list td {
    border-bottom: solid 2px rgb(224, 224, 224);
    padding: 25px;
-   border-collapse: collapse;
-}
-
-.run-list th {
-   color: rgb(145, 145, 145);
-   border-bottom: 10px solid rgb(168, 168, 168);
-   background-color: rgb(238, 238, 238);
-   text-align: center;
-}
-
-.run-list th {
-   text-align: left;
-   padding: 5px;
 }
 
 .job-list {
-  list-style-type: none; /* Entfernt die Aufzählungspunkte */
+  list-style-type: none;
   padding: 0px;
-  margin: 0; /* Entfernt den Standard-Außenabstand der Liste */
+  margin: 0;
   vertical-align: middle;
   border-left: 10px solid grey;
 }
@@ -253,11 +207,21 @@ table {
 }
 
 .joblist-table td {
-
    padding: 10px;
-
-
 }
+
+ul.lib {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+ul.lib li {
+   margin: 0 10px 0 0;
+}
+
 .pipeline-list th {
    padding-bottom: 5px;
    padding-top: 5px;
@@ -276,6 +240,7 @@ table {
 .library-list td {
    padding: 10px;
 }
+
 .library-list th {
    color: darkgrey;
    padding: 5px;
@@ -291,14 +256,16 @@ table {
    background-color: rgb(233, 233, 233);
    border-bottom: 5px darkgrey solid;
 }
+
 .run-metrics td {
    padding: 5px 50px 0px 5px;
 }
-/*
-Special elements
-*/
 
-.user-status a { color: rgb(181, 179, 179); font-size: small; }
+/* Special elements */
+.user-status a { 
+   color: rgb(181, 179, 179); 
+   font-size: small; 
+}
 
 .library-selection {
    background-color: rgb(240, 240, 240);
@@ -307,14 +274,17 @@ Special elements
    padding-top: 5px;
    padding-bottom: 5px;
 }
+
 .library-selection h2 {
    color: rgb(197, 24, 111);
 }
 
+/* Hover effects */
 table tr:hover {
    background-color: #ddd;
 }
 
+/* Form elements */
 input[type="checkbox"]:checked {
   box-shadow: 0 0 0 3px rgb(197, 24, 111);
 }
@@ -331,22 +301,7 @@ select:focus {
   background: #dddddd;
 }
 
-/* 
-buttons
-*/
-
-form.button_to .button-2 {
-   background-color: rgb(197, 24, 111);
-  border: none;
-  color: white;
-  border-radius: 8px;
-  padding: 5px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-}
-
+/* Buttons */
 .button-2 {
   background-color: rgb(197, 24, 111);
   border: none;
@@ -364,10 +319,11 @@ form.button_to .button-2 {
    color: white;
  }
 
- .my_form-check-button:hover {
+.my_form-check-button:hover {
    background-color: rgb(169, 169, 169);
    color: white;
  }
+
 .button-delete {
    background-color: gray;
    border: none;
@@ -395,11 +351,7 @@ input[type=button], input[type=submit] {
   cursor: pointer;
 }
 
-/*
-Tabbed run list
-*/
-/* Tabs mit radio-Buttons */
-
+/* Tabbed run list */
 .tabs-container {
     display: flex;
     flex-wrap: wrap;
@@ -435,6 +387,6 @@ Tabbed run list
         width: 100%;
         padding-top: 15px;
         display: block;
-        border-top: 4px solid rgb(197, 24, 111);;
+        border-top: 4px solid rgb(197, 24, 111);
     }
 }

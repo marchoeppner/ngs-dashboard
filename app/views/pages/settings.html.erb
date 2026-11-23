@@ -1,2 +1,6 @@
-<h1>Pages#settings</h1>
-<p>Find me in app/views/pages/settings.html.erb</p>
+<h1>Einstellungen</h1>
+
+<h2>Instrumente</h2>
+<%= render @instruments %>
+
+<%= link_to "Neues Instrument", new_instrument_path %>

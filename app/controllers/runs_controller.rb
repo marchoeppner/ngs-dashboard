@@ -36,13 +36,17 @@ class RunsController < ApplicationController
 
     if job.nil?
 
-      command = "#{@pipeline['template']} -profile #{@pipeline_profile} -r #{@pipeline.version} --run_name #{@run.name}"
+      command = "#{@pipeline['template']} -r #{@pipeline.version} --run_name #{@run.name}"
+      if @pipeline['template'].include?("nextflow")
+        command = "#{command} -profile #{@pipeline_profile}"
+      end
+
       this_date = Time.now.strftime("%d-%m-%Y")
 
       wpath = "#{@work_dir}/#{@run.clean_name}_#{@run.id}/#{@pipeline.clean_name}/#{this_date}"
       FileUtils.mkdir_p(wpath)
 
-      if @pipeline.samplesheet_format
+      if @pipeline.samplesheet_format && @pipeline.samplesheet_format.length > 0
         rows = [ @pipeline.samplesheet_format ]
         @run.libraries.each do |lib|
           if @pipeline.samplesheet_format.include?("platform")
@@ -139,19 +143,22 @@ class RunsController < ApplicationController
 
   # POST /runs/register
   def register
-    illumina_dirs = Rails.configuration.local_resources["illumina_dirs"]
+    platform = Platform.find_by_name("Illumina")
+    instruments = platform.instruments
     counter = 0
-    platform = Platform.first
-    illumina_dirs.each do |dir|
-      run_dirs = Dir["#{dir}/*_*"]
+    instruments.each do |instrument|
+      run_dirs = Dir["#{instrument.nfs_path}/*_*"]
       run_dirs.each do |rdir|
         name = File.basename(rdir)
         run_date = File.mtime(rdir).strftime("%F")
         run = Run.find_by_name(name)
         if !run
-          run = Run.create({ "location" => rdir, "platform" => platform, "name" => name, "run_date" => run_date, "demuxed" => true })
-          run.register_libraries
-          counter += 1
+          # Check if the run data has already been transferred
+          if File.exist?("#{rdir}/CopyComplete.txt")
+            run = Run.create({ "location" => rdir, "platform" => platform, "name" => name, "run_date" => run_date, "demuxed" => true })
+            run.register_libraries
+            counter += 1
+          end
         end
       end
     end

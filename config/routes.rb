@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :instruments
+
   get "pages/dashboard"
   get "pages/settings"
+
   resources :xref_job_libraries
 
   namespace :settings do
